@@ -461,7 +461,7 @@ between videos and samples;
 #X obj 276 320 *~;
 #X obj 342 314 *~;
 #X obj 332 223 r granularVolume;
-#N canvas 267 57 874 589 granGUI 0;
+#N canvas 267 57 874 589 granGUI 1;
 #X obj 105 106 cnv 15 399 148 empty empty empty 20 12 0 14 -233017
 -66577 0;
 #X obj 126 136 hsl 397 8 0 1 0 0 empty empty scrub -2 -8 0 10 -1109
@@ -558,6 +558,7 @@ between videos and samples;
 #X msg -1 78;
 #X obj -2 103 print;
 #X text -30 149 comment;
+#X obj 21 12 inport;
 #X connect 1 0 51 0;
 #X connect 7 0 4 0;
 #X connect 8 0 5 0;
