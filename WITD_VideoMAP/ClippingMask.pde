@@ -71,7 +71,7 @@ class ClippingMask{
       int blue = c & 0xFF;
       movie.pixels[i] = color(red, green, blue);
     }
-    tint(r, g, b, 126);
+    tint(r, g, b, posX);
     movie.updatePixels();
     frame.image(movie, 0, 0, frame.width, frame.height);
     frame.endDraw();

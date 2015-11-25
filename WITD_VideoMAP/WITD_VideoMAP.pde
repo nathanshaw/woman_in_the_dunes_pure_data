@@ -14,9 +14,15 @@ int numMedia = numShapes.length;
 
 float r, g, b;
 float noiseY;
+float posX, posY;
 
 int sliders = 8;
 float [] s = {0, 0, 0, 0, 0, 0, 0, 0};
+int knobs = 8;
+float [] k = {0, 0, 0, 0, 0, 0, 0, 0};
+int buttons = 8;
+float [] btn = {0, 0, 0, 0, 0, 0, 0, 0};
+
 
 ClippingMask[] clip = new ClippingMask[numMedia];
 boolean calibrate = true;
@@ -46,6 +52,8 @@ void draw() {
   r = map(s[2], 0, 1, 0, 255); 
   g = map(s[3], 0, 1, 0, 255);
   b = map(s[4], 0, 1, 0, 255);
+  posX = map(k[1], 0, 1, 70, 255);
+  posY = map(k[2], 0, 1, 0, height);
 
   noiseY = map(s[1], 0, 1, 0, 10);
   
@@ -141,6 +149,26 @@ void oscEvent(OscMessage msg) {
     {
       s[i] = msg.get(0).floatValue();
       println(s[i]);
+    }
+  }
+  for (int i=1; i<knobs; i++)
+  {
+    String addr;
+    addr = "/k" + i; 
+    if (msg.checkAddrPattern(addr) == true)
+    {
+      k[i] = msg.get(0).floatValue();
+      println(k[i]);
+    }
+  }
+  for (int i=1; i<knobs; i++)
+  {
+    String addr;
+    addr = "/b" + i; 
+    if (msg.checkAddrPattern(addr) == true)
+    {
+      btn[i] = msg.get(0).floatValue();
+      println(btn[i]);
     }
   }
 }
