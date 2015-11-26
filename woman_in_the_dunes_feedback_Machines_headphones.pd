@@ -636,7 +636,7 @@
 #X obj 162 250 +~;
 #X obj 246 241 *~ 0.5;
 #X obj 105 251 knob 32 32 0 1 0 0 empty empty empty 0 -8 0 8 -262144
--1 -1 1062 1;
+-1 -1 0 1;
 #X obj 224 174 delread~ del 1000;
 #X obj 223 132 * 10000;
 #X obj 241 295 delwrite~ del 1000;
@@ -855,10 +855,10 @@ empty -2 -6 0 10 -13330 -262144 -1 5200 1;
 #X obj 290 199 hsl 100 12 0 1 0 0 \$0-metro-rnd \$0-metro-rnd-r empty
 -2 -6 0 10 -13330 -262144 -1 6300 1;
 #X obj 510 153 hsl 100 12 0 1 0 0 \$0-envelope \$0-envelope-r empty
--2 -6 0 10 -13330 -262144 -1 6158 1;
+-2 -6 0 10 -13330 -262144 -1 0 1;
 #X text 539 178 envelope;
 #X obj 510 169 hsl 100 12 0 1 0 0 \$0-envelope-exp \$0-envelope-exp-r
-empty -2 -6 0 10 -13330 -262144 -1 6158 1;
+empty -2 -6 0 10 -13330 -262144 -1 0 1;
 #X obj 456 212 hradio 15 1 0 10 \$0-load \$0-load-r preset -45 7 0
 12 -175484 -262144 -1 0;
 #X obj 516 193 bng 15 250 50 0 \$0-store rwiuytiuwytriu store 18 8
@@ -870,18 +870,18 @@ empty -2 -6 0 10 -13330 -262144 -1 6158 1;
 #X text 137 42 delay line granulizer;
 #X text 146 58 hard.off@gmail.com;
 #X obj 181 214 hsl 100 12 0 1 0 0 \$0-vcf \$0-vcf-r filter -52 7 0
-13 -13330 -262144 -4160 9900 1;
+13 -13330 -262144 -4160 5400 1;
 #X obj 181 244 hsl 100 12 0 1 0 0 \$0-feedback \$0-feedback-r feedback
 -68 7 0 13 -13330 -262144 -4160 4400 1;
 #X obj 398 244 hsl 100 12 0 1 0 0 \$0-feedback-time \$0-feedback-time-r
-empty -2 -6 0 10 -13330 -262144 -1 9588 1;
+empty -2 -6 0 10 -13330 -262144 -1 4400 1;
 #X obj 290 244 hsl 100 12 0 1 0 0 \$0-feedback-rnd \$0-feedback-rnd-r
 empty -2 -6 0 10 -13330 -262144 -1 1000 1;
 #X text 395 228 feedback time;
 #X obj 290 213 hsl 100 12 0 1 0 0 \$0-vcf-rnd \$0-vcf-rnd-r empty -2
 -6 0 10 -13330 -262144 -1 4700 1;
 #X obj 506 244 hsl 100 12 0 1 0 0 \$0-feedback-return \$0-feedback-return-r
-empty -2 -6 0 10 -13330 -262144 -1 6860 1;
+empty -2 -6 0 10 -13330 -262144 -1 3100 1;
 #X text 503 228 feedback return;
 #X obj 181 229 hsl 100 12 0 1 0 0 \$0-autopan \$0-autopan-r autopan
 -60 7 0 13 -13330 -262144 -4160 2700 1;
@@ -1377,6 +1377,8 @@ empty -2 -6 0 10 -13330 -262144 -1 3800 1;
 #X restore -577 344 pd GRAIN;
 #X obj -431 398 pvu~;
 #X obj -430 421 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
+#X obj -354 652 dac~;
+#X text -377 680 This could be the headphone out...;
 #X connect 1 0 7 0;
 #X connect 1 0 14 0;
 #X connect 1 0 21 0;
@@ -1400,14 +1402,15 @@ empty -2 -6 0 10 -13330 -262144 -1 3800 1;
 #X connect 21 1 11 0;
 #X connect 21 1 22 1;
 #X connect 21 1 32 1;
+#X connect 21 1 35 1;
 #X connect 22 0 23 0;
 #X connect 22 0 30 0;
 #X connect 22 1 23 1;
 #X connect 22 1 24 0;
 #X connect 23 0 15 0;
 #X connect 23 0 26 0;
-#X connect 23 1 15 1;
 #X connect 23 1 28 0;
+#X connect 23 1 15 0;
 #X connect 24 0 25 0;
 #X connect 26 0 27 0;
 #X connect 28 0 29 0;
@@ -1415,4 +1418,5 @@ empty -2 -6 0 10 -13330 -262144 -1 3800 1;
 #X connect 32 0 22 0;
 #X connect 32 1 22 1;
 #X connect 32 1 33 0;
+#X connect 32 1 35 1;
 #X connect 33 0 34 0;
