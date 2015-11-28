@@ -12,16 +12,16 @@ int[] numShapes = {10, 10, 10}; //the number of shapes PER media file
 String[] mediaFiles = {"WITD-sand.mp4", "WITD-sandBug.mp4", "WITD-sandFilter.mp4"}; //the media file names
 int numMedia = numShapes.length;
 
-float r, g, b;
-float noiseY;
-float posX, posY;
+float r, g, b, r2, g2, b2;
+float noise1, noise2;
+float bright1, bright2;
 
-int sliders = 8;
-float [] s = {0, 0, 0, 0, 0, 0, 0, 0};
+int sliders = 9;
+float [] s = {0, 0, 0, 0, 0, 0, 0, 0,0};
 int knobs = 8;
 float [] k = {0, 0, 0, 0, 0, 0, 0, 0};
 int buttons = 8;
-float [] btn = {0, 0, 0, 0, 0, 0, 0, 0};
+int [] btn = {0, 0, 0, 0, 0, 0, 0, 0};
 
 
 ClippingMask[] clip = new ClippingMask[numMedia];
@@ -49,13 +49,19 @@ void movieEvent(Movie m) {
 
 void draw() {
   background(0);
+  noise1 = map(s[1], 0, 1, 0, 10);
   r = map(s[2], 0, 1, 0, 255); 
   g = map(s[3], 0, 1, 0, 255);
   b = map(s[4], 0, 1, 0, 255);
-  posX = map(k[1], 0, 1, 70, 255);
-  posY = map(k[2], 0, 1, 0, height);
+  
+  noise2 = map(s[5], 0, 1, 0, 10);
+  r2 = map(s[6], 0, 1, 0, 1000);
+  g2 = map(s[7], 0, 1, 0, 1000);
+  b2 = map(s[8], 0, 1, 0, 1000);
+  bright1 = map(k[1], 0, 1, 70, 255);
+  bright2 = map(k[2], 0, 1, 0, height);
 
-  noiseY = map(s[1], 0, 1, 0, 10);
+
   
   for (int i=0; i<clip.length; i++) {
     clip[i].drawClippingMask();
@@ -167,8 +173,11 @@ void oscEvent(OscMessage msg) {
     addr = "/b" + i; 
     if (msg.checkAddrPattern(addr) == true)
     {
-      btn[i] = msg.get(0).floatValue();
+      btn[i] = msg.get(0).intValue();
       println(btn[i]);
     }
   }
+  print("### received an osc message.");
+  print(" addrpattern: "+msg.addrPattern());
+  println(" typetag: "+msg.typetag());
 }
