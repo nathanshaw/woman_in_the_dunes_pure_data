@@ -39,8 +39,8 @@ void setup() {
 
   textSize(18);
 
-  osc = new OscP5(this, 12001);//receive OSC
-  martinLocation = new NetAddress("127.0.0.1", 12000);//send OSC
+  osc = new OscP5(this, 3001);//receive OSC
+  martinLocation = new NetAddress("127.0.0.1", 3000);//send OSC
 }
 
 void movieEvent(Movie m) {
@@ -167,7 +167,7 @@ void oscEvent(OscMessage msg) {
       println(k[i]);
     }
   }
-  for (int i=1; i<knobs; i++)
+  for (int i=1; i<buttons; i++)
   {
     String addr;
     addr = "/b" + i; 

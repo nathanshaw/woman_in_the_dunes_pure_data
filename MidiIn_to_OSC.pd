@@ -189,7 +189,7 @@
 #X obj 946 187 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 997 85 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 5600 1;
+-1 -1 0 1;
 #X obj 340 77 prepend /s1;
 #X obj 413 77 prepend /s2;
 #X obj 486 77 prepend /s3;
@@ -200,7 +200,7 @@
 #X obj 852 77 prepend /s8;
 #X msg 421 283 2;
 #X msg 312 283 1;
-#X msg 108 -14 connect 127.0.0.1 12001;
+#X msg 108 -14 connect 127.0.0.1 3001;
 #X connect 1 0 185 0;
 #X connect 2 0 0 0;
 #X connect 4 0 186 0;
