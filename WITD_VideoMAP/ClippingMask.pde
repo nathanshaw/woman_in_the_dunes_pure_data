@@ -64,31 +64,31 @@ class ClippingMask {
 
     frame.beginDraw();
     for (int i=0; i<numPixels; i++) {
-      movie.pixels[i] = movie.pixels[i] * int(noise(i*frameCount)*noise1);
-      color c = movie.pixels[i];
-      int red = (c >> 15) & 0xFF;
-      int green = (c >> 7) & 0xFF;
-      int blue = c & 0xFF;
-      movie.pixels[i] = color(red, green, blue);
+        
+          movie.pixels[i] = movie.pixels[i] * int(noise(i*frameCount)*noise1);
+          color c = movie.pixels[i];
+          int red = (c >> 15) & 0xFF;
+          int green = (c >> 7) & 0xFF;
+          int blue = c & 0xFF;
+          movie.pixels[i] = color(red, green, blue);
     }
+    
     for (int i = 0; i<buttons; i++) {
       if (btn[i] == 1) {
         tint(r, g, b, bright1);
         movie.updatePixels();
         frame.image(movie, 0, 0, frame.width, frame.height);
         frame.endDraw();
-
+        //scale(shape);
         frame.mask(clippingMask);
-
-        image(frame, 0, 0);
-      } else if(btn[i] == 2) {
+        image(frame, posX, posY);
+        
+      } else if (btn[i] == 2) {
         tint(r2, g2, b2, bright2);
         movie.updatePixels();
         frame.image(movie, 0, 0, frame.width, frame.height);
         frame.endDraw();
-
         frame.mask(clippingMask);
-
         image(frame, 0, 0);
       }
     }

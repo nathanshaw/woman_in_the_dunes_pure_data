@@ -13,18 +13,19 @@ String[] mediaFiles = {"WITD-sand.mp4", "WITD-sandBug.mp4", "WITD-sandFilter.mp4
 int numMedia = numShapes.length;
 
 float r, g, b, r2, g2, b2;
-float noise1, noise2;
+float noise1, noise2, alpha, backGroundColor, posX, posY, posX2, posY2;
 float bright1, bright2;
 
 int sliders = 9;
 float [] s = {0, 0, 0, 0, 0, 0, 0, 0,0};
-int knobs = 8;
-float [] k = {0, 0, 0, 0, 0, 0, 0, 0};
+int knobs = 9;
+float [] k = {0, 0, 0, 0, 0, 0, 0, 0, 0};
 int buttons = 8;
 int [] btn = {0, 0, 0, 0, 0, 0, 0, 0};
 
 
 ClippingMask[] clip = new ClippingMask[numMedia];
+ClippingMask[] clip2 = new ClippingMask[numMedia];
 boolean calibrate = true;
 
 OscP5 osc;
@@ -36,6 +37,7 @@ void setup() {
     clip[i] = new ClippingMask(this, mediaFiles[i], "clip"+i+".json", i, numShapes[i]);
   }
   smooth();
+  background(0);
 
   textSize(18);
 
@@ -48,20 +50,27 @@ void movieEvent(Movie m) {
 }
 
 void draw() {
-  background(0);
+  noStroke();
+  fill(backGroundColor, alpha);
+  rect(0, 0, width, height);
   noise1 = map(s[1], 0, 1, 0, 10);
   r = map(s[2], 0, 1, 0, 255); 
   g = map(s[3], 0, 1, 0, 255);
   b = map(s[4], 0, 1, 0, 255);
   
   noise2 = map(s[5], 0, 1, 0, 10);
-  r2 = map(s[6], 0, 1, 0, 1000);
-  g2 = map(s[7], 0, 1, 0, 1000);
-  b2 = map(s[8], 0, 1, 0, 1000);
+  r2 = map(s[6], 0, 1, 0, 255);
+  g2 = map(s[7], 0, 1, 0, 255);
+  b2 = map(s[8], 0, 1, 0, 255);
   bright1 = map(k[1], 0, 1, 70, 255);
-  bright2 = map(k[2], 0, 1, 0, height);
-
-
+  bright2 = map(k[2], 0, 1, 70, 255);
+  
+  alpha = map(k[3], 0, 1, 0, 255);
+  backGroundColor = map(k[4], 0, 1, 0, 255);
+  posX = map(k[5], 0, 1, 0, width);
+  posY = map(k[6], 0, 1, 0, height);
+  posX2 = map(k[7], 0, 1, 0, width);
+  posY2 = map(k[8], 0, 1, 0, height);
   
   for (int i=0; i<clip.length; i++) {
     clip[i].drawClippingMask();
