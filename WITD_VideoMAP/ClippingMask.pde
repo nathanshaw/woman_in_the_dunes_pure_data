@@ -35,6 +35,7 @@ class ClippingMask {
       clippingShape[i] = createShape();
     }
 
+
     controlPoints = (ArrayList<ControlPoint>[])new ArrayList[num];
     for (int i=0; i<controlPoints.length; i++) {
       controlPoints[i] = new ArrayList<ControlPoint>();
