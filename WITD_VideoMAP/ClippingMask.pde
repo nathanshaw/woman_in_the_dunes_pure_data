@@ -79,17 +79,17 @@ class ClippingMask {
         movie.updatePixels();
         frame.image(movie, 0, 0, frame.width, frame.height);
         frame.endDraw();
-        //scale(shape);
         frame.mask(clippingMask);
         image(frame, posX, posY);
         
       } else if (btn[i] == 2) {
         tint(r2, g2, b2, bright2);
+        movie.pixels[i] = movie.pixels[i] * int(noise(i*frameCount)*noise2);
         movie.updatePixels();
         frame.image(movie, 0, 0, frame.width, frame.height);
         frame.endDraw();
         frame.mask(clippingMask);
-        image(frame, 0, 0);
+        image(frame, posX2, posY2);
       }
     }
 
