@@ -248,6 +248,9 @@
 -1 -1;
 #X obj 88 -312 delay 1500;
 #X msg 337 -347 connect 10.40.18.0 3001;
+#X obj 302 -250 tcpsend;
+#X obj 290 -273 packOSC;
+#X obj 290 -293 r data;
 #X connect 0 0 26 0;
 #X connect 1 0 27 0;
 #X connect 2 0 28 0;
@@ -483,3 +486,6 @@
 #X connect 224 1 229 0;
 #X connect 231 0 232 0;
 #X connect 232 0 152 0;
+#X connect 232 0 233 0;
+#X connect 234 0 233 0;
+#X connect 235 0 234 0;
