@@ -41,8 +41,8 @@ void setup() {
 
   textSize(18);
 
-  osc = new OscP5(this, 3001);//receive OSC
-  martinLocation = new NetAddress("127.0.0.1", 3000);//send OSC
+  osc = new OscP5(this, 4001);//receive OSC
+  martinLocation = new NetAddress("127.0.0.1", 4000);//send OSC
 }
 
 void movieEvent(Movie m) {
@@ -67,10 +67,10 @@ void draw() {
   
   alpha = map(k[3], 0, 1, 0, 255);
   backGroundColor = map(k[4], 0, 1, 0, 255);
-  posX = map(k[5], 0, 1, 0, width);
-  posY = map(k[6], 0, 1, 0, height);
-  posX2 = map(k[7], 0, 1, 0, width);
-  posY2 = map(k[8], 0, 1, 0, height);
+  posX = map(k[5], 0, 1, 0, width/2);
+  posY = map(k[6], 0, 1, 0, height/2);
+  posX2 = map(k[7], 0, 1, 0, -width/2);
+  posY2 = map(k[8], 0, 1, 0, -height/2);
   
   for (int i=0; i<clip.length; i++) {
     clip[i].drawClippingMask();
