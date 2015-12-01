@@ -41,8 +41,8 @@ void setup() {
 
   textSize(18);
 
-  osc = new OscP5(this, 3001);//receive OSC
-  martinLocation = new NetAddress("127.0.0.1", 3000);//send OSC
+  osc = new OscP5(this, 4001);//receive OSC
+  martinLocation = new NetAddress("127.0.0.1", 4000);//send OSC
 }
 
 void movieEvent(Movie m) {
