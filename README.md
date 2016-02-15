@@ -1,10 +1,7 @@
-This is the Readme for the YinYang interactive audio/visual installation by Martin Velez and Nathan Villicana-Shaw
+This is the Readme for the YinYang interactive audio/visual installation 
+            by Martin Vélez and Nathan Villicaña-Shaw
 
-
-
-dune_03.aif is best if used for the sample placeback engine
-
-Check List:
+========== CHECK LIST =================================
 
 2x Laptop Computers
 4x CRT TV's
@@ -12,7 +9,7 @@ Check List:
 6x rca 1->2 atapters
 2x HDMI -> RCA audio/video adapters'
 
-HARDWARE SETUP:
+========== HARDWARE SETUP =============================
 
 1. Stack four TV's on top of each other on a sturdy table
 
@@ -36,8 +33,20 @@ HARDWARE SETUP:
 9. Plug a Nano Kontrol into each of the two laptops and place in front of the TV's (if black and white Nano are present alternate the knob and slider colors)
 
 
-SOFTWARE SETUP :
+========== SOFTWARE SETUP - Discovery Synths ===========
 
 Run the processing sketch first
 Then run the PD sketch
 then move all sliders, knobs and buttons
+
+========== SOFTWARE SETUP - NANO Kontrols ==============
+
+---------- PURE DATA -----------------------------------
+1. Open the korg2_Midi_in_to_OSC.pd file in pure data
+2. Click on the message "connect 127.0.0.1"
+3. In pure data go to media->Audio Settings and make sure that the output device is set to HDMI
+4. Test your controller's first channel, you should see the patch display values for the knobs, sliders and buttons' 
+5. Open woman_in_the_dunes_feedback_machines.pd
+6. Click the button next to Load in the main control box. Load one of the samples found under "pure data -> media" (Such as dunes_03.aif)
+7. Move all the sliders and knobs and press a few buttons and the sound should start playing
+8.
