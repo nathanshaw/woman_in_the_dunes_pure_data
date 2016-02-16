@@ -90,6 +90,32 @@ class ClippingMask {
         frame.endDraw();
         frame.mask(clippingMask);
         image(frame, posX2, posY2);
+      } else if (btn[i] == 3) {
+        tint(g, b, r, bright2);
+        movie.updatePixels();
+        frame.image(movie, 0, 0, frame.width, frame.height);
+        frame.endDraw();
+        frame.mask(clippingMask);
+        pushMatrix();
+        translate(width/2, height/2);
+        rotate(PI/k[5]);
+        //for(int j=0; j<width; j= j+10){
+        
+        image(frame, 0, 0);
+        //}
+        popMatrix();
+      }
+      else if (btn[i] == 4) {
+        tint(b2, r2, g2, bright1);
+        movie.updatePixels();
+        frame.image(movie, 0, 0, frame.width, frame.height);
+        frame.endDraw();
+        frame.mask(clippingMask);
+        pushMatrix();
+        translate(width/2, height/2);
+        rotate(PI/k[7]);
+        image(frame, 0, 0);
+        popMatrix();
       }
     }
 
