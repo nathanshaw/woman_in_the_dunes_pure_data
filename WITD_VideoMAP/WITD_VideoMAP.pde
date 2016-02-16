@@ -8,8 +8,8 @@ import processing.video.*;
 /***~***/
 
 int currMedia = 0;
-int[] numShapes = {10, 10, 10}; //the number of shapes PER media file
-String[] mediaFiles = {"WITD-sand.mp4", "WITD-sandBug.mp4", "WITD-sandFilter.mp4"}; //the media file names
+int[] numShapes = {10, 10, 10, 10}; //the number of shapes PER media file
+String[] mediaFiles = {"ny.mov", "WITD-sandBug.mp4", "WITD-sandFilter.mp4", "bridgeCollapses.mov"}; //the media file names
 int numMedia = numShapes.length;
 
 float r, g, b, r2, g2, b2;
@@ -69,8 +69,8 @@ void draw() {
   backGroundColor = map(k[4], 0, 1, 0, 255);
   posX = map(k[5], 0, 1, 0, width/2);
   posY = map(k[6], 0, 1, 0, height/2);
-  posX2 = map(k[7], 0, 1, 0, -width/2);
-  posY2 = map(k[8], 0, 1, 0, -height/2);
+  posX2 = map(k[7], 0, 1, 0, width/2);
+  posY2 = map(k[8], 0, 1, 0, height/2);
   
   for (int i=0; i<clip.length; i++) {
     clip[i].drawClippingMask();
