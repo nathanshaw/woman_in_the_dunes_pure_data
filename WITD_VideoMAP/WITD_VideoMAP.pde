@@ -53,7 +53,7 @@ void draw() {
   noStroke();
   fill(backGroundColor, alpha);
   rect(0, 0, width, height);
-  noise1 = map(s[1], 0, 1, 0, 10);
+  noise1 = map(s[1], 0, 1, 0, 100);
   r = map(s[2], 0, 1, 0, 255); 
   g = map(s[3], 0, 1, 0, 255);
   b = map(s[4], 0, 1, 0, 255);

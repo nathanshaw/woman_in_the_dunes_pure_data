@@ -117,6 +117,20 @@ class ClippingMask {
         image(frame, 0, 0);
         popMatrix();
       }
+      else if (btn[i] == 5) {
+        tint(b2, r2, g2, bright1);
+        movie.updatePixels();
+        frame.image(movie, 0, 0, frame.width, frame.height);
+        frame.endDraw();
+        frame.mask(clippingMask);
+        pushMatrix();
+        translate(width/2, height/2);
+        rotate(PI/k[7]);
+        for(int j = 0; j<100; j = 10 +j){
+        image(frame, j, -j);
+        }
+        popMatrix();
+      }
     }
 
     for (int i=0; i<controlPoints.length; i++) {
