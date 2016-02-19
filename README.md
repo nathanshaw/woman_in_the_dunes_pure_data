@@ -8,6 +8,19 @@ This is the Readme for the YinYang interactive audio/visual installation
 1x Audio Mixer
 6x rca 1->2 atapters
 2x HDMI -> RCA audio/video adapters'
+2X HDMI Cables
+4X RCA cables (each with red, white and yellow plugs)
+2X RCA to 1/4 inch adapters
+4x Mini USB cables
+2X Identical Headphones
+2X Headphone extension cables
+2X 1/8th inch to 1/4 inch adapters
+2X power strips
+1X table
+1X Extension Cable
+2X Lamps
+2X Tablecloths
+2X Nano Kontrols
 
 ========== HARDWARE SETUP =============================
 
