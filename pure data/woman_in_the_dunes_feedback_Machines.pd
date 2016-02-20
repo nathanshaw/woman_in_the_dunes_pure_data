@@ -5,7 +5,7 @@
 #X obj -666 78 r start;
 #X msg -614 101 1;
 #X obj -614 78 r stop;
-#N canvas 541 77 738 420 jumpy 1;
+#N canvas 541 77 738 420 jumpy 0;
 #X obj 135 -952 s filejumper;
 #X obj 11 -1150 r but1;
 #X msg 26 -1085 0;
@@ -140,7 +140,7 @@
 #X obj -332 559 pvu~;
 #X obj -331 591 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj -737 319 dac~;
-#N canvas 50 23 1183 551 CONTROL 0;
+#N canvas 50 23 1183 551 CONTROL 1;
 #X obj -66 -260 unpackOSC;
 #X floatatom -530 167 5 0 0 0 - - -;
 #X text -1108 -8 KNOBS;
@@ -387,7 +387,7 @@
 #X obj 1 -105 prepend /b7;
 #X obj 76 -103 prepend /b8;
 #X obj -1010 80 *;
-#X obj 448 -238 delay 2000;
+#X obj 571 -260 delay 2000;
 #X msg 482 -216 connect 10.40.6.122 4001;
 #X obj -64 -282 tcpreceive 3001;
 #X obj -111 -239 routeOSC /b1 /b2 /b3 /b4 /b5 /b6 /b7 /b8 /b9 /10 /b11
@@ -657,6 +657,7 @@
 #X obj -280 -308 loadbang;
 #X obj -275 -249 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
+#X msg 574 -236 connect 127.0.0.1 4001;
 #X connect 0 0 4 0;
 #X connect 0 0 5 0;
 #X connect 0 0 225 0;
@@ -881,6 +882,7 @@
 #X connect 219 0 211 0;
 #X connect 220 0 212 0;
 #X connect 221 0 454 0;
+#X connect 222 0 458 0;
 #X connect 223 0 162 0;
 #X connect 224 0 0 0;
 #X connect 225 0 11 0;
@@ -1132,8 +1134,9 @@
 #X connect 455 0 457 0;
 #X connect 456 0 455 0;
 #X connect 457 0 88 0;
+#X connect 458 0 162 0;
 #X restore -442 147 pd CONTROL IN;
-#N canvas 72 92 450 300 INIT_SAMPLE_MACHINE 0;
+#N canvas 650 45 450 300 INIT_SAMPLE_MACHINE 0;
 #X obj -275 68 loadbang;
 #X msg -275 153 \; pd dsp 1 \;;
 #X obj -306 96 s lb;
@@ -1578,12 +1581,12 @@
 #X obj -772 345 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
 #X obj -555 569 pvu~;
 #X obj -554 592 vu 15 120 empty empty -1 -8 0 10 -66577 -1 1 0;
-#N canvas 617 154 450 300 GRAIN 1;
+#N canvas 617 154 450 300 GRAIN 0;
 #X obj 15 101 inlet~;
 #X obj 76 102 inlet~;
 #X obj -13 177 outlet~;
 #X obj 50 176 outlet~;
-#N canvas 565 22 693 551 grain_engine 1;
+#N canvas 565 22 693 551 grain_engine 0;
 #X obj 111 128 cnv 15 510 150 empty empty value 100 13 2 17 -249659
 -83269 0;
 #X obj 181 153 hsl 100 12 0 1 0 0 \$0-pitch \$0-pitch-r pitch -45 7
@@ -1603,10 +1606,10 @@ empty -2 -6 0 10 -13330 -262144 -1 5200 1;
 #X obj 290 199 hsl 100 12 0 1 0 0 \$0-metro-rnd \$0-metro-rnd-r empty
 -2 -6 0 10 -13330 -262144 -1 6300 1;
 #X obj 510 153 hsl 100 12 0 1 0 0 \$0-envelope \$0-envelope-r empty
--2 -6 0 10 -13330 -262144 -1 9900 1;
+-2 -6 0 10 -13330 -262144 -1 7094 1;
 #X text 539 178 envelope;
 #X obj 510 169 hsl 100 12 0 1 0 0 \$0-envelope-exp \$0-envelope-exp-r
-empty -2 -6 0 10 -13330 -262144 -1 9900 1;
+empty -2 -6 0 10 -13330 -262144 -1 7094 1;
 #X obj 456 212 hradio 15 1 0 10 \$0-load \$0-load-r preset -45 7 0
 12 -175484 -262144 -1 0;
 #X obj 516 193 bng 15 250 50 0 \$0-store rwiuytiuwytriu store 18 8
@@ -1620,14 +1623,14 @@ empty -2 -6 0 10 -13330 -262144 -1 9900 1;
 #X obj 181 244 hsl 100 12 0 1 0 0 \$0-feedback \$0-feedback-r feedback
 -68 7 0 13 -13330 -262144 -4160 4400 1;
 #X obj 398 244 hsl 100 12 0 1 0 0 \$0-feedback-time \$0-feedback-time-r
-empty -2 -6 0 10 -13330 -262144 -1 9900 1;
+empty -2 -6 0 10 -13330 -262144 -1 7094 1;
 #X obj 290 244 hsl 100 12 0 1 0 0 \$0-feedback-rnd \$0-feedback-rnd-r
 empty -2 -6 0 10 -13330 -262144 -1 1000 1;
 #X text 395 228 feedback time;
 #X obj 290 213 hsl 100 12 0 1 0 0 \$0-vcf-rnd \$0-vcf-rnd-r empty -2
 -6 0 10 -13330 -262144 -1 4700 1;
 #X obj 506 244 hsl 100 12 0 1 0 0 \$0-feedback-return \$0-feedback-return-r
-empty -2 -6 0 10 -13330 -262144 -1 9900 1;
+empty -2 -6 0 10 -13330 -262144 -1 7094 1;
 #X text 503 228 feedback return;
 #X obj 180 229 hsl 100 12 0 1 0 0 \$0-autopan \$0-autopan-r autopan
 -60 7 0 13 -13330 -262144 -4160 2700 1;
